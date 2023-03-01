@@ -6,7 +6,7 @@ install:
 
 # Scripts to be run such as tests
 before_script:
-  - echo "--------------------------------Build number: v$TRAVIS_BUILD_NUMBER--------------------------------"
+  - echo "--------------------------------Build number v$TRAVIS_BUILD_NUMBER--------------------------------"
 
 script:
   - echo "--------------------------------Started building images--------------------------------"
