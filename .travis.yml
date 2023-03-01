@@ -17,6 +17,8 @@ script:
   # - docker tag udagram-frontend lvdinh/udagram-frontend:v$TRAVIS_BUILD_NUMBER
   - docker tag udagram-reverseproxy lvdinh/udagram-reverseproxy:v$TRAVIS_BUILD_NUMBER
   - docker images
+  - docker tag udagram-reverseproxy lvdinh/udagram-reverseproxy:v${TRAVIS_BUILD_NUMBER}
+  - docker images
   - echo "--------------------------------Finished building images--------------------------------"
 
 after_success:
