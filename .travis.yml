@@ -2,24 +2,28 @@ services:
   - docker
 # Pre-testing installs
 install:
-  - echo "nothing needs to be installed"
+  - echo "--------------------------------Nothing needs to be installed--------------------------------"
 
 # Scripts to be run such as tests
 before_script:
-  - echo "no tests"
+  - echo "--------------------------------No tests--------------------------------"
 
 script:
-- docker-compose -f docker-compose-build.yaml build --parallel
+  - echo "--------------------------------Started building images--------------------------------"
+  - docker-compose -f docker-compose-build.yaml build --parallel
 
-- docker tag udagram-api-feed lvdinh/udagram-api-feed:v1
-- docker tag udagram-api-user lvdinh/udagram-api-user:v1
-- docker tag udagram-frontend lvdinh/udagram-frontend:v1
-- docker tag udagram-reverseproxy lvdinh/udagram-reverseproxy:v1
+  - docker tag udagram-api-feed lvdinh/udagram-api-feed:${TRAVIS_BUILD_NUMBER}
+  - docker tag udagram-api-user lvdinh/udagram-api-user:${TRAVIS_BUILD_NUMBER}
+  - docker tag udagram-frontend lvdinh/udagram-frontend:${TRAVIS_BUILD_NUMBER}
+  - docker tag udagram-reverseproxy lvdinh/udagram-reverseproxy:${TRAVIS_BUILD_NUMBER}
+  - echo "--------------------------------Finished building images--------------------------------"
 
 after_success:
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "--------------------------------Started pushing images--------------------------------"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-- docker push lvdinh/udagram-api-feed:v1
-- docker push lvdinh/udagram-api-user:v1
-- docker push lvdinh/udagram-frontend:v1
-- docker push lvdinh/udagram-reverseproxy:v1
+  - docker push lvdinh/udagram-api-feed:${TRAVIS_BUILD_NUMBER}
+  - docker push lvdinh/udagram-api-user:${TRAVIS_BUILD_NUMBER}
+  - docker push lvdinh/udagram-frontend:${TRAVIS_BUILD_NUMBER}
+  - docker push lvdinh/udagram-reverseproxy:${TRAVIS_BUILD_NUMBER}
+  - echo "--------------------------------Finished pushing images--------------------------------"
