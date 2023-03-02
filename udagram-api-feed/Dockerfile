@@ -1,11 +1,9 @@
 FROM node:14
-# Create app directory
 WORKDIR /usr/src/app
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied where available (npm@5+)
 COPY package*.json ./
 RUN npm ci 
-# Bundle app source
+RUN npm install typescript -g
 COPY . .
+RUN tsc
 EXPOSE 8080
-CMD [ "npm", "run", "prod" ]
+CMD ["node", "./www/server.js"]
