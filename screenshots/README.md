@@ -54,3 +54,9 @@ To help review your infrastructure, please include the following screenshots in 
     ![kubectl logs](kubectl%20logs%20user.png)
     ![kubectl logs](kubectl%20logs%20frontend.png)
     ![kubectl logs](kubectl%20logs%20reverseproxy.png)
+
+## Backend logs
+* Feed API logs
+    ![Alt text](api-feed-logs.png)
+* User API logs
+    ![Alt text](api-user-logs.png)
