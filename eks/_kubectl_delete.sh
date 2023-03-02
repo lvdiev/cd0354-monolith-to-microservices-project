@@ -10,7 +10,7 @@ kubectl delete service udagram-frontend
 
 kubectl delete deployment udagram-reverseproxy
 kubectl delete service udagram-reverseproxy
-kubectl delete service public-reserveproxy
+kubectl delete service public-reverseproxy
 
 kubectl delete --all service
 kubectl delete --all deployment
