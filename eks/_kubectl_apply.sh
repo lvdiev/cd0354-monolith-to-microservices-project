@@ -21,3 +21,4 @@ kubectl apply -f reverseproxy-service.yaml
 
 # expose services
 kubectl expose service udagram-reverseproxy --type=LoadBalancer  --name=public-reserveproxy --port=80 --target-port=8080
+kubectl expose service udagram-frontend --type=LoadBalancer --name=public-frontend --port=80 --target-port=80
