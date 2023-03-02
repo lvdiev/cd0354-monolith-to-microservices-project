@@ -20,3 +20,10 @@ spec:
         imagePullPolicy: Always  
         ports:
         - containerPort: 8080
+        envFrom:
+            - secretRef:
+                name: env-secret
+                optional: false
+            - configMapRef:
+                name: env-configmap
+                optional: false
