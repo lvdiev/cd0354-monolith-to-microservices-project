@@ -41,10 +41,8 @@ To help review your infrastructure, please include the following screenshots in 
     ```bash
     kubectl describe hpa
     ```
-
-    ![Alt text](kubectl%20get%20hpa.png)
-    ![Alt text](kubectl%20describe%20hpa%201.png)
-    ![Alt text](kubectl%20describe%20hpa%202.png)
+    
+    ![Alt text](kubectl%20describe%20hpa.png)
 
 * To verify that you have set up logging with a backend application
     ```bash
