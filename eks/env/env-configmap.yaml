@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: mylap3
+  AWS_BUCKET: my-bucket
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   POSTGRES_DB: postgres
-  POSTGRES_HOST: database-2.cnszsrk3frku.us-east-1.rds.amazonaws.com
+  POSTGRES_HOST: my-db.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100  
 metadata:
-  name: env-config
+  name: env-configmap
